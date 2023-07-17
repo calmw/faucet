@@ -1,0 +1,47 @@
+
+.pageheader {
+    height: 65px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    width: 100%;
+}
+
+.pageheader .topLeft {
+    display: block;
+    float: left;
+}
+
+.pageheader .topRight {
+    float: right;
+    height: 65px;
+}
+
+.pageheader .logo {
+    height: 40px;
+    margin-top: 13px;
+    margin-left: 15px;
+}
+
+.pageheader .topRight .langbox {
+    float: left;
+    width: 125px;
+    margin-top: 10px;
+}
+
+.pageheader .topRight .langbox .langCurrent {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.pageheader .topRight .langbox .longIcon {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.pageheader .topRight .langbox .longIcon:hover {
+    transform: rotateY(180deg);
+}
+
+.pageheader .topRight .connectwallect {
+    float: left;
+    width: 160px;
+}
