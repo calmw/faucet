@@ -1,0 +1,383 @@
+html, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #131B26;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.pageHeader {
+    height: 65px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+}
+
+.pageHeader .topLeft {
+    display: block;
+    float: left;
+}
+
+.pageHeader .topRight {
+    float: right;
+    height: 65px;
+}
+
+.pageHeader .logo {
+    height: 40px;
+    margin-top: 13px;
+    margin-left: 15px;
+}
+
+.pageHeader .topRight .langBox {
+    float: left;
+    width: 125px;
+    margin-top: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 30px;
+    background: #2C323D;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.pageHeader .topRight .langBox .langLi {
+    list-style: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: none;
+}
+
+.pageHeader .topRight .langBox .langLi span {
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+
+.pageHeader .topRight .langBox .langUpDown {
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 13px 0 0 10px;
+}
+
+.pageHeader .topRight .langBox .langUpDown:hover {
+    transform: rotateY(180deg);
+}
+
+.pageHeader .topRight .connectWallet {
+    float: left;
+    width: 155px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 30px;
+    background: #2C323D;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px 10px 0 15px;
+}
+
+#connectMetamask {
+
+}
+
+#connectMetamask .connectIcon {
+    display: block;
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 13px 0 0 13px;
+}
+
+.pageHeader .topRight .connectWallet .connectedMetamask {
+    display: none;
+}
+
+.pageHeader .topRight .connectWallet .chainIcon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 10px 10px 10px 15px;
+    float: left;
+}
+
+.pageHeader .topRight .connectWallet .userAddress {
+    float: right;
+    margin-right: 15px;
+}
+
+.pageHeader .topRight .connectWallet .disconnect {
+    display: none;
+}
+
+.content {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    top: 65px;
+}
+
+.content .leftTop {
+    position: absolute;
+    width: 130px;
+    height: 140px;
+    left: 150px;
+    top: 130px;
+}
+
+.content .leftBottom {
+    position: absolute;
+    width: 90px;
+    height: 100px;
+    left: 150px;
+    top: 400px;
+}
+
+.content .rightTop {
+    position: absolute;
+    width: 130px;
+    height: 140px;
+    right: 150px;
+    top: 80px;
+}
+
+.content .rightMiddle {
+    position: absolute;
+    width: 70px;
+    height: 80px;
+    right: 350px;
+    top: 200px;
+}
+
+.content .rightBottom {
+    position: absolute;
+    width: 70px;
+    height: 80px;
+    right: 200px;
+    top: 400px;
+}
+
+.content .dialogBox {
+    margin: 0 auto;
+    width: 560px;
+    background: #141414;
+    position: relative;
+    top: 40px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.content .dialogBox .top {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.content .dialogBox .top .buyTitle {
+    float: left;
+    color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.content .dialogBox .top .buyRule {
+    float: right;
+    color: #fff;
+    background: #363646;
+    border-radius: 10px;
+    height: 40px;
+    line-height: 40px;
+    padding: 2px 15px;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.content .dialogBox .top .buyRule .iconRule {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    top: 2px;
+}
+
+.content .dialogBox .buyBox {
+    background: #1c1d1d;
+    border: 1px solid rgba(255, 255, 255, .1);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    margin: 15px 0;
+    z-index: 2;
+}
+
+.content .dialogBox .buyBox {
+    background: #1c1d1d;
+    border: 1px solid rgba(255, 255, 255, .1);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    margin: 15px 0;
+    z-index: 2;
+}
+
+.content .dialogBox .buyBox .buyTop {
+    font-weight: 200;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    color: rgba(255, 255, 255, .6);
+    padding: 15px 15px 5px 15px;
+}
+
+.content .dialogBox .buyBox .buyTop .buyTopLeft {
+    float: left;
+}
+
+.content .dialogBox .buyBox .buyTop .buyTopRight {
+    float: right;
+    margin-left: 10px;
+}
+
+.content .dialogBox .buyBox .buyContent {
+    height: 50px;
+    line-height: 50px;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.content .dialogBox .buyBox .butNum {
+    height: 30px;
+    width: 365px;
+    float: left;
+    display: block;
+    background: #1c1d1d;
+    outline: none;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 200;
+    outline: none;
+    border: none;
+}
+
+.content .dialogBox .buyBox .all {
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 20px;
+    width: 30px;
+    color: #0084ff;
+    float: left;
+    padding: 0 10px;
+}
+
+.content .dialogBox .buyBox .line {
+    width: 1px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, .2);
+    float: left;
+    line-height: 30px;
+    margin: 10px 0;
+}
+
+.content .dialogBox .buyBox .selectToken {
+    width: 91px;
+    height: 50px;
+    float: right;
+    cursor: pointer;
+}
+
+.content .dialogBox .buyBox .selectToken .tokenLogo {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-top: 12px;
+}
+
+.content .dialogBox .buyBox .selectToken .tokenName {
+    width: 50px;
+    height: 30px;
+    float: left;
+    color: #fff;
+    text-align: center;
+}
+
+.content .dialogBox .buyBox .selectToken .downIcon {
+    width: 15px;
+    height: 15px;
+    float: left;
+    padding: 5px 0;
+    margin-top: 12px;
+}
+
+.content .dialogBox .buyContent .tokenList {
+    width: 170px;
+    padding: 15px 0;
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    border-radius: 10px;
+    background: #191920;
+    display: none;
+}
+
+.content .dialogBox .buyContent .tokenList .tokenItem {
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 2px 0;
+    padding: 0 10px;
+    font-size: 10px;
+}
+.content .dialogBox .buyContent .tokenList .tokenItem.active {
+   background: #23232D;
+}
+
+.content .dialogBox .buyContent .tokenList .tokenItem .tokenImg {
+    height: 20px;
+    width: 20px;
+    display: block;
+    float: left;
+    margin: 10px 10px 0 0;
+}
+
+.content .dialogBox .exchangeBox {
+    height: 55px;
+    margin-top: 45px;
+}
+
+.content .dialogBox .exchangeBox .exchangeButton {
+    display: block;
+    height: 55px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+}
+
+.content .dialogBox .desc {
+    margin-top: 20px;
+    font-weight: 200;
+    font-size: 14px;
+    padding: 10px 0px;
+    line-height: 26px;
+    color: #ffffff;
+}
