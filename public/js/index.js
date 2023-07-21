@@ -68,6 +68,13 @@ $(function () {
 
     // 购买
     $('.exchangeButton').click(async function () {
+        console.log(buyNum)
+        if (buyNum <= 0) {
+            layer.msg(ErrBuyNumZero)
+        }
+        if (accountBalance <= 0) {
+            layer.msg(ErrBalanceZero)
+        }
         if (accountCurrent && accountBalance > 0 && buyNum > 0) {
             await transfer()
         }

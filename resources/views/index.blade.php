@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link href="/layui/css/layui.css" rel="stylesheet">
 </head>
 <body>
 <header class="pageHeader">
@@ -111,9 +112,9 @@
 </footer>
 </body>
 </html>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script src="aui/script/aui-toast.js"></script>
-<script src="js/web3.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script src="/js/web3.js"></script>
+<script src="/layui/layui.js"></script>
 <script type="text/javascript">
     let tokenIndex = 0;
     let accountCurrent = null;
@@ -122,6 +123,11 @@
     let buyNum = 0;
     let MetaMaskConnected = false;
     let MetaMaskInstalled = false;
+    let ErrBalanceZero = '{{__('index.errBalanceZero')}}';
+    let ErrBuyNumZero = '{{__('index.errBuyNumZero')}}';
+    let StatusBuying = '{{__('index.statusBuying')}}';
+    let StatusBuySuccess = '{{__('index.statusBuySuccess')}}';
+    let StatusBuyFailed = '{{__('index.statusBuyFailed')}}';
     const tokens = [
             @foreach($tokenInfo as $k=>$t)
         {
@@ -135,53 +141,6 @@
         @endforeach
     ];
 
-    // aui
-    let toast = new auiToast();
-
-    function showToast(type) {
-        switch (type) {
-            case "connectMetaMask":
-                toast.success({
-                    title: "请连接MetaMask",
-                    duration: 2000
-                });
-                break;
-            case "installMetaMask":
-                toast.fail({
-                    title: "请安装MetaMask",
-                    duration: 2000
-                });
-                break;
-            case "addChainFailed":
-                toast.fail({
-                    title: "添加网络失败",
-                    duration: 2000
-                });
-                break;
-            case "custom":
-                toast.custom({
-                    title: "提交成功",
-                    html: '<i class="aui-iconfont aui-icon-laud"></i>',
-                    duration: 2000
-                });
-                break;
-            case "loading":
-                toast.loading({
-                    title: "加载中",
-                    duration: 2000
-                }, function (ret) {
-                    console.log(ret);
-                    setTimeout(function () {
-                        toast.hide();
-                    }, 3000)
-                });
-                break;
-            default:
-                // statements_def
-                break;
-        }
-    }
-
     // web3
     let web3 = undefined;
     if (typeof web3 !== 'undefined') {
@@ -192,7 +151,7 @@
 
     // metamask
     if (typeof window.ethereum === 'undefined') {
-        showToast("installMetaMask")
+        layer.msg("Please install MetaMask")
     } else {
         initAccount()
     }
@@ -232,11 +191,11 @@
                         })
                     } catch (ee) {
                         console.log('Add chain failed.');
-                        showToast("addChainFailed")
+                        layer.msg("Add chain failed")
                     }
                 } else if (err.code === 4001) {
                     console.log('Please connect to MetaMask.');
-                    showToast("connectMetaMask")
+                    layer.msg("Please connect to MetaMask.")
                 }
             }
         }
@@ -262,7 +221,7 @@
         await checkChain()
         await initialise();
         if (!MetaMaskInstalled) {
-            showToast("installMetaMask");
+            layer.msg("Please install MetaMask.")
             return;
         }
         if (!MetaMaskConnected) {
@@ -285,9 +244,9 @@
             .catch((err) => {
                 if (err.code === 4001) {
                     console.log('Please connect to MetaMask.');
-                    showToast("connectMetaMask")
+                    layer.msg("Please connect to MetaMask.")
                 } else {
-                    showToast("connectMetaMask")
+                    layer.msg(err.message)
                     console.error(err);
                 }
             });
@@ -343,18 +302,32 @@
 
     // 转账交易
     async function transfer() {
+        let buyLoading = layer.load(0, {shade: false});
+
         MetaMask = new Web3(window.ethereum);
         await MetaMask.eth.sendTransaction({
             from: accountCurrent,
-            to: '0xec9EB2bf4497d448FB61171C54D295702C9F5cbC',
+            to: '{{$sysConfigInfo->account}}',
             value: web3.utils.toWei(buyNum, 'ether'),
             chainId: {{$chainInfo->chain_id}}
         }).then(res => {
             console.log("转账完成,txHash: ", res.transactionHash);
+            // 下单
+            $.ajax({
+                url: "demo_test.txt",
+                data: {
+                    chainId: tokens[tokenIndex]['chain_id'],
+                    buyNum: buyNum,
+                },
+                success: function (result) {
+                    layer.close(buyLoading);
+                    // .....
+                }
+            });
         }).catch(err => {
             console.error(err);
+            layer.msg(err.message);
         });
     }
-
 </script>
 <script type="text/javascript" src="js/index.js"></script>
