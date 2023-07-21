@@ -25,6 +25,7 @@ input[type="number"] {
     width: 100%;
     position: fixed;
     z-index: 10;
+    backdrop-filter: blur(8px);
 }
 
 .pageHeader .topLeft {
@@ -47,20 +48,46 @@ input[type="number"] {
     float: left;
     width: 125px;
     margin-top: 10px;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 30px;
-    background: #2C323D;
-    height: 40px;
+    height: 43px;
     line-height: 40px;
     text-align: center;
 }
 
-.pageHeader .topRight .langBox .langLi {
-    list-style: none;
+.pageHeader .topRight .langBox:hover img {
+    transform: rotateY(180deg);
+}
+
+.pageHeader .topRight .langBox .currentLangBox {
     color: #ffffff;
     cursor: pointer;
+    background: #2C323D;
+    border-radius: 30px;
+}
+
+.pageHeader .topRight .langBox .currentLang {
+    position: relative;
+    top: -2px;
+}
+
+.pageHeader .topRight .langBox .langSelect {
+    padding: 10px 0;
+    background: #2C323D;
+    border-radius: 0 0 20px 20px;
     display: none;
+}
+
+.pageHeader .topRight .langBox .langLi {
+    color: #ffffff;
+    display: block;
+    background: #2C323D;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.pageHeader .topRight .langBox .langLiBottom {
+    border-radius: 0 0 15px 15px;
 }
 
 .pageHeader .topRight .langBox .langLi span {
@@ -72,11 +99,9 @@ input[type="number"] {
 .pageHeader .topRight .langBox .langUpDown {
     color: #ffffff;
     cursor: pointer;
-    display: block;
-    float: left;
     width: 15px;
     height: 15px;
-    margin: 13px 0 0 10px;
+    margin: 13px 0 0 0px;
 }
 
 .pageHeader .topRight .langBox .langUpDown:hover {
@@ -85,31 +110,38 @@ input[type="number"] {
 
 .pageHeader .topRight .connectWallet {
     float: left;
-    width: 155px;
+    min-width: 160px;
     color: #ffffff;
     cursor: pointer;
-    border-radius: 30px;
-    background: #2C323D;
+    /*border-radius: 30px;*/
+    /*background: #2C323D;*/
     height: 40px;
     line-height: 40px;
     text-align: center;
     margin: 10px 10px 0 15px;
+    padding: 0 15px;
 }
 
-#connectMetamask {
-
+.pageHeader .topRight .connectMetamask {
+    line-height: 40px;
+    height: 40px;
+    border-radius: 30px;
+    background: #2C323D;
 }
 
-#connectMetamask .connectIcon {
-    display: block;
-    float: left;
+.pageHeader .topRight .connectMetamask .connect {
+    position: relative;
+    top: -2px;
+}
+.pageHeader .topRight .connectMetamask .connectIcon {
     width: 15px;
     height: 15px;
-    margin: 13px 0 0 13px;
+    margin-top: 13px;
 }
 
 .pageHeader .topRight .connectWallet .connectedMetamask {
     display: none;
+    width: 160px;
 }
 
 .pageHeader .topRight .connectWallet .chainIcon {
@@ -120,13 +152,32 @@ input[type="number"] {
     float: left;
 }
 
+.pageHeader .topRight .connectWallet .walletInfo {
+    height: 41px;
+    border-radius: 30px;
+    background: #2C323D;
+}
+
 .pageHeader .topRight .connectWallet .userAddress {
     float: right;
     margin-right: 15px;
 }
 
 .pageHeader .topRight .connectWallet .disconnect {
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    background: #2B2D36;
+    border-radius: 30px;
     display: none;
+}
+
+.pageHeader .topRight .connectWallet .disconnect .icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    position: relative;
+    top: 1px;
 }
 
 .content {
@@ -263,7 +314,7 @@ input[type="number"] {
     position: relative;
 }
 
-.content .dialogBox .buyBox .butNum {
+.content .dialogBox .buyBox .buyNum {
     height: 30px;
     width: 365px;
     float: left;
@@ -298,25 +349,26 @@ input[type="number"] {
 }
 
 .content .dialogBox .buyBox .selectToken {
-    width: 91px;
+    width: 95px;
     height: 50px;
     float: right;
     cursor: pointer;
 }
 
 .content .dialogBox .buyBox .selectToken .tokenLogo {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     float: left;
-    margin-top: 12px;
+    margin-top: 15px;
 }
 
 .content .dialogBox .buyBox .selectToken .tokenName {
     width: 50px;
-    height: 30px;
+    height: 50px;
     float: left;
     color: #fff;
     text-align: center;
+    margin: 0 5px;
 }
 
 .content .dialogBox .buyBox .selectToken .downIcon {
@@ -328,7 +380,7 @@ input[type="number"] {
 }
 
 .content .dialogBox .buyContent .tokenList {
-    width: 170px;
+    width: 190px;
     padding: 15px 0;
     position: absolute;
     right: 0px;
@@ -347,8 +399,9 @@ input[type="number"] {
     padding: 0 10px;
     font-size: 10px;
 }
+
 .content .dialogBox .buyContent .tokenList .tokenItem.active {
-   background: #23232D;
+    background: #23232D;
 }
 
 .content .dialogBox .buyContent .tokenList .tokenItem .tokenImg {
@@ -380,4 +433,22 @@ input[type="number"] {
     padding: 10px 0px;
     line-height: 26px;
     color: #ffffff;
+}
+
+.footer{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    border-top: 0.01rem solid #26242c;
+    justify-content: center;
+    padding-top: 5px;
+    position: fixed;
+    bottom: 0px;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+.footer .footerText{
+    color: #757185;
+    font-size: 14px;
 }
