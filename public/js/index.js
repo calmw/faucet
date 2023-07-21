@@ -65,4 +65,11 @@ $(function () {
         $(this).val(buyNum)
         renderNum()
     })
+
+    // 购买
+    $('.exchangeButton').click(async function () {
+        if (accountCurrent && accountBalance > 0 && buyNum > 0) {
+            await transfer()
+        }
+    })
 })

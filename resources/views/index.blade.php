@@ -96,9 +96,7 @@
         </div>
         <div class="exchangeBox">
             <button type="button" class="exchangeButton">
-                <div class="van-button__content">
-                    <span class="van-button__text">{{__('index.buyBtn')}}</span>
-                </div>
+                {{__('index.buyBtn')}}
             </button>
         </div>
         <div class="desc">
@@ -342,6 +340,21 @@
     window.ethereum.on('accountsChanged', async (accounts) => {
         handleAccountsChanged(accounts);
     });
+
+    // 转账交易
+    async function transfer() {
+        MetaMask = new Web3(window.ethereum);
+        await MetaMask.eth.sendTransaction({
+            from: accountCurrent,
+            to: '0xec9EB2bf4497d448FB61171C54D295702C9F5cbC',
+            value: web3.utils.toWei(buyNum, 'ether'),
+            chainId: {{$chainInfo->chain_id}}
+        }).then(res => {
+            console.log("转账完成,txHash: ", res.transactionHash);
+        }).catch(err => {
+            console.error(err);
+        });
+    }
 
 </script>
 <script type="text/javascript" src="js/index.js"></script>
