@@ -1,6 +1,8 @@
 $(function () {
     // 初始化钱包及账户信息
-    initAccount();
+    initAccount().then(r => {
+        console.log('init account success')
+    });
 
     // 授权链接MetaMask
     $('.connectMetamask').click(function () {

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Faucet</title>
+    <description>faucet testnet</description>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link href="/layui/css/layui.css" rel="stylesheet">
 </head>
@@ -156,7 +157,7 @@
         initAccount()
     }
 
-    // 切换网络
+    // 检查网络
     async function checkChain() {
         const {ethereum} = window;
         // 判断链对不，链不对就请求切换网络，或者添加网络，
