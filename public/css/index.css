@@ -65,8 +65,8 @@ input[type="number"] {
 }
 
 .pageHeader .topRight .langBox .currentLang {
-    position: relative;
-    top: -2px;
+    /*position: relative;*/
+    /*top: -2px;*/
 }
 
 .pageHeader .topRight .langBox .langSelect {
@@ -101,7 +101,7 @@ input[type="number"] {
     cursor: pointer;
     width: 15px;
     height: 15px;
-    margin: 13px 0 0 0px;
+    /*margin: 13px 0 0 0px;*/
 }
 
 .pageHeader .topRight .langBox .langUpDown:hover {
@@ -130,18 +130,17 @@ input[type="number"] {
 }
 
 .pageHeader .topRight .connectMetamask .connect {
-    position: relative;
-    top: -2px;
+
 }
 .pageHeader .topRight .connectMetamask .connectIcon {
     width: 15px;
     height: 15px;
-    margin-top: 13px;
+    /*margin-top: 13px;*/
 }
 
 .pageHeader .topRight .connectWallet .connectedMetamask {
     display: none;
-    width: 160px;
+    width: 140px;
 }
 
 .pageHeader .topRight .connectWallet .chainIcon {

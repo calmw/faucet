@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Faucet</title>
-    <description>faucet testnet</description>
+    <meta type="keywords" content="faucet testnet"></meta>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link href="/layui/css/layui.css" rel="stylesheet">
 </head>
@@ -319,6 +319,7 @@
                 data: {
                     txHash: res.transactionHash,
                     tokenId: tokenIndex + 1,
+                    lang: {{$lang=='en'?'zh':'en'}}
                 },
                 success: function (result) {
                     layer.close(buyLoading);
