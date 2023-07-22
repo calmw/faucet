@@ -13,6 +13,7 @@ class IndexController extends Controller
     public function Index(Request $request)
     {
         $lang = $request->lang == "zh" ? "English" : "简体中文";
+        $msgBuySuccess = $request->lang == "zh" ? "购买成功，请稍后到对应链查看" : "Buy success, Please check later.";
         $tokenModel = new Token();
         $tokenInfo = $tokenModel
             ->leftJoin("rate", "rate.token_id", '=', 'token.id')
@@ -21,7 +22,7 @@ class IndexController extends Controller
             ->get();
 
         $chainModel = new Chain();
-        $chainInfo = $chainModel->where('id', 2)->first();
+        $chainInfo = $chainModel->where('is_default', 1)->first();
 
         $sysConfigModel = new SysConfig();
         $sysConfigInfo = $sysConfigModel->where('id', 1)->first();
@@ -30,6 +31,7 @@ class IndexController extends Controller
             "tokenInfo" => $tokenInfo,
             'lang' => $lang,
             'chainInfo' => $chainInfo,
+            'msgBuySuccess' => $msgBuySuccess,
             'sysConfigInfo' => $sysConfigInfo,
         ]);
     }

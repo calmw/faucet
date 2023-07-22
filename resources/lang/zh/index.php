@@ -11,6 +11,4 @@ return [
     'BuyTips' => '本站使用Polygon 原生币MATIC 购买Polygon以及其他网络测试币.',
     'errBalanceZero' => '余额必须大于0.',
     'errBuyNumZero' => 'Matic数量必须大于0.',
-    'statusBuying' => '购买中，请等待...',
-    'statusBuySuccess' => '请查看：',
 ];

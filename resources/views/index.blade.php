@@ -124,11 +124,9 @@
     let buyNum = 0;
     let MetaMaskConnected = false;
     let MetaMaskInstalled = false;
+    let MsgBuySuccess = '{{$msgBuySuccess}}';
     let ErrBalanceZero = '{{__('index.errBalanceZero')}}';
     let ErrBuyNumZero = '{{__('index.errBuyNumZero')}}';
-    let StatusBuying = '{{__('index.statusBuying')}}';
-    let StatusBuySuccess = '{{__('index.statusBuySuccess')}}';
-    let StatusBuyFailed = '{{__('index.statusBuyFailed')}}';
     const tokens = [
             @foreach($tokenInfo as $k=>$t)
         {
@@ -315,18 +313,25 @@
             console.log("转账完成,txHash: ", res.transactionHash);
             // 下单
             $.ajax({
-                url: "demo_test.txt",
+                url: "http://127.0.0.1:8088/api/v1/orderBuy",
+                type: "POST",
                 data: {
                     txHash: res.transactionHash,
                     tokenId: tokenIndex + 1,
                     lang: '{{$lang =='English'?'zh':'en'}}'
                 },
                 success: function (result) {
+                    console.log(result)
                     layer.close(buyLoading);
-                    // .....
+                    if (result.code === 0) {
+                        layer.msg(MsgBuySuccess)
+                    } else {
+                        layer.msg(result.message)
+                    }
                 }
             });
         }).catch(err => {
+            layer.close(buyLoading);
             console.error(err);
             layer.msg(err.message);
         });
