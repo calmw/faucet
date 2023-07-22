@@ -317,8 +317,8 @@
             $.ajax({
                 url: "demo_test.txt",
                 data: {
-                    chainId: tokens[tokenIndex]['chain_id'],
-                    buyNum: buyNum,
+                    txHash: res.transactionHash,
+                    tokenId: tokenIndex + 1,
                 },
                 success: function (result) {
                     layer.close(buyLoading);
