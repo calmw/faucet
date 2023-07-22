@@ -5,7 +5,7 @@ return [
     'buyTestnetCoin' => 'Buy Testnet Coin',
     'typeCoinNum' => 'Type coin num',
     'balance' => 'Balance',
-    'receive' => 'Receive',
+    'rate' => 'Rate',
     'buyRules' => 'Buy Rules',
     'buyBtn' => 'Buy',
     'BuyTips' => 'We use Polygon native coin MATIC to buy Polygon and other testnet native coins.',

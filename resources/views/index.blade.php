@@ -58,7 +58,7 @@
         <div class="buyBox">
             <div class="buyTop">
                 <div class="buyTopLeft">Buy:</div>
-                <div class="buyTopRight">{{__('index.receive')}} ≈ <span id="receive">0</span>
+                <div class="buyTopRight">{{__('index.rate')}} ≈ <span id="rate">{{$tokenInfo[0]->rate}}</span>
                     <span id="tokenName">MATIC</span>
                 </div>
                 <div class="buyTopRight">{{__('index.balance')}}: <span id="balance">0</span>
@@ -68,7 +68,7 @@
             <div class="buyContent">
                 <input class="buyNum" min="0"
                        type="number" placeholder="{{__('index.typeCoinNum')}}">
-                <div class="all">All</div>
+                <div class="all">Max</div>
                 <div class="line"></div>
                 <div class="selectToken">
                     @foreach($tokenInfo as $k=>$t)
@@ -120,7 +120,7 @@
     let tokenIndex = 0;
     let accountCurrent = null;
     let accountBalance = 0;
-    let receiveCoin = 0;
+    let amount = 0;
     let buyNum = 0;
     let MetaMaskConnected = false;
     let MetaMaskInstalled = false;
@@ -257,7 +257,7 @@
             let subUserAddress = accountCurrent.substring(0, 6) + "..." + accountCurrent.substring(39, 42)
             $('.userAddress').text(subUserAddress);
             web3.eth.getBalance(accountCurrent).then((balance) => {
-                accountBalance = (parseInt(balance) / 1e18).toFixed(4)
+                accountBalance = (parseFloat(balance) / 1e18).toFixed(4)
                 renderNum()
             });
         }
@@ -278,7 +278,6 @@
     function disConnect() {
         accountCurrent = null;
         accountBalance = 0;
-        receiveCoin = 0;
         buyNum = 0;
         MetaMaskConnected = false;
         renderNum()
@@ -286,10 +285,8 @@
 
     // 数值渲染
     function renderNum() {
-        receiveCoin = (parseFloat(tokens[tokenIndex]['rate']) * accountBalance * buyNum).toFixed(4)
-        console.log()
-        $('#balance').text(accountBalance);
-        $('#receive').text(receiveCoin);
+        amount = (buyNum / parseFloat(tokens[tokenIndex]['rate'])).toFixed(4);
+        $('#balance').text((parseFloat(accountBalance) - parseFloat(amount)).toFixed(4));
         $('#tokenName').text(tokens[tokenIndex]['token_name']);
         $('.buyNum').val(buyNum);
     }

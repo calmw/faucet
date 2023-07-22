@@ -266,7 +266,7 @@ input[type="number"] {
     width: 17px;
     height: 17px;
     position: relative;
-    top: 2px;
+    top: -2px;
 }
 
 .content .dialogBox .buyBox {
@@ -315,7 +315,7 @@ input[type="number"] {
 
 .content .dialogBox .buyBox .buyNum {
     height: 30px;
-    width: 365px;
+    width: 355px;
     float: left;
     display: block;
     background: #1c1d1d;
@@ -335,7 +335,8 @@ input[type="number"] {
     width: 30px;
     color: #0084ff;
     float: left;
-    padding: 0 10px;
+    padding: 0 15px 0 10px;
+    margin-right: 5px;
 }
 
 .content .dialogBox .buyBox .line {

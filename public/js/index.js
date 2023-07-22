@@ -26,6 +26,7 @@ $(function () {
         $(this).siblings().removeClass("active")
         $(this).addClass("active")
         $('.tokenList').toggle()
+        $('#rate').text(tokens[tokenIndex]['rate'])
         $('.tokenLogo').attr("src", tokens[tokenIndex]['chain_logo'])
         $('.tokenName').text(tokens[tokenIndex]['token_name'])
         renderNum()
@@ -33,8 +34,8 @@ $(function () {
 
     // 购买选择全部余额
     $('.all').click(function () {
-        buyNum = accountBalance
-        $('.buyNum').val(accountBalance)
+        buyNum = (accountBalance * tokens[tokenIndex].rate).toFixed(4)
+        $('.buyNum').val(buyNum)
         renderNum()
     })
 
