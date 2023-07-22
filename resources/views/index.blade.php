@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Faucet</title>
-    <meta type="keywords" content="faucet testnet"></meta>
+    <meta type="keywords" content="faucet testnet">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link href="/layui/css/layui.css" rel="stylesheet">
 </head>
