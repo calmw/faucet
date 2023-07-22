@@ -319,7 +319,7 @@
                 data: {
                     txHash: res.transactionHash,
                     tokenId: tokenIndex + 1,
-                    lang: {{$lang=='en'?'zh':'en'}}
+                    lang: '{{$lang =='English'?'zh':'en'}}'
                 },
                 success: function (result) {
                     layer.close(buyLoading);
